@@ -14,27 +14,27 @@ class CustomError(HTTPException):
 
 class UnauthorizedError(CustomError):
     def __init__(self,
-                 message: str = '',
+                 message: str = 'Unauthorized',
                  subcode: int = 0):
         super().__init__(message, status.HTTP_401_UNAUTHORIZED, subcode)
 
 
 class ForbiddenError(CustomError):
     def __init__(self,
-                 message: str = '',
+                 message: str = 'Forbidden',
                  subcode: int = 0):
         super().__init__(message, status.HTTP_403_FORBIDDEN, subcode)
 
 
 class NotFoundError(CustomError):
     def __init__(self,
-                 message: str = '',
+                 message: str = 'Not found',
                  subcode: int = 0):
         super().__init__(message, status.HTTP_404_NOT_FOUND, subcode)
 
 
 class ConflictError(CustomError):
     def __init__(self,
-                 message: str = '',
+                 message: str = 'Conflict',
                  subcode: int = 0):
         super().__init__(message, status.HTTP_409_CONFLICT, subcode)
