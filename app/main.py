@@ -30,7 +30,6 @@ app.include_router(router)
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(_request: Request, e: RequestValidationError):
-    print('validation exception handler ')
     messages = [f'{error['loc'][-1]} {error['msg']}' for error in e.errors()]
     message = '\n'.join(messages)
     return JSONResponse(
